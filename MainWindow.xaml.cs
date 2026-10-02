@@ -257,8 +257,12 @@ namespace oscdimg_wrapprt_gui
         private void SetRunning(bool running)
         {
             FormPanel.IsEnabled = !running;
+            CommandTextBox.IsEnabled = !running;
+            LogTextBox.IsEnabled = !running;
             StartButton.IsEnabled = !running;
             StopButton.IsEnabled = running;
+            if (!running)
+                RunProgress.Value = 0;
         }
 
         private void AppendLog(string? line)
@@ -273,6 +277,21 @@ namespace oscdimg_wrapprt_gui
 
             LogTextBox.AppendText(line + Environment.NewLine);
             LogTextBox.ScrollToEnd();
+            if (TryParseProgress(line, out var percent))
+                RunProgress.Value = percent;
+        }
+
+        private static bool TryParseProgress(string line, out int percent)
+        {
+            percent = 0;
+            var text = line.Trim();
+            const string suffix = "% complete";
+            if (!text.EndsWith(suffix, StringComparison.Ordinal))
+                return false;
+            var number = text[..^suffix.Length];
+            return number.Length is > 0 and <= 3
+                && int.TryParse(number, out percent)
+                && percent is >= 0 and <= 100;
         }
 
         private static void BrowseReadme(TextBox target)
