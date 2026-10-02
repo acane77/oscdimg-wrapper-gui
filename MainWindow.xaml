@@ -7,7 +7,7 @@
         MinHeight="560"
         MinWidth="560"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+        Background="#D4D0C8"
         FontFamily="Microsoft YaHei"
         SnapsToDevicePixels="True"
         UseLayoutRounding="True"
@@ -18,7 +18,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
-        <Style x:Key="BrowseButton" TargetType="Button">
+        <Style x:Key="BrowseButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
             <Setter Property="MinWidth" Value="75"/>
             <Setter Property="Height" Value="23"/>
             <Setter Property="Padding" Value="8,0"/>
@@ -27,7 +27,7 @@
         <Style x:Key="Hint" TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="Margin" Value="0,6,0,0"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+            <Setter Property="Foreground" Value="#808080"/>
         </Style>
     </Window.Resources>
 
@@ -166,9 +166,7 @@
                      Grid.Column="1"
                      IsReadOnly="True"
                      TextWrapping="Wrap"
-                     MinHeight="23"
-                     Padding="2,2"
-                     Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                     MinHeight="23"/>
         </Grid>
 
         <GroupBox Grid.Row="2" Header="输出" Margin="0,8,0,8" Padding="8">
@@ -177,9 +175,7 @@
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      VerticalScrollBarVisibility="Auto"
-                     HorizontalScrollBarVisibility="Auto"
-                     BorderThickness="0"
-                     Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                     HorizontalScrollBarVisibility="Auto"/>
         </GroupBox>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
