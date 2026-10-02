@@ -258,7 +258,6 @@ namespace oscdimg_wrapprt_gui
         {
             FormPanel.IsEnabled = !running;
             CommandTextBox.IsEnabled = !running;
-            LogTextBox.IsEnabled = !running;
             StartButton.IsEnabled = !running;
             StopButton.IsEnabled = running;
             if (!running)
