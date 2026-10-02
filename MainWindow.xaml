@@ -8,6 +8,7 @@
         MinWidth="560"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+        FontFamily="Microsoft YaHei"
         SnapsToDevicePixels="True"
         UseLayoutRounding="True"
         Loaded="Window_Loaded">
